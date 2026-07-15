@@ -3,16 +3,6 @@ import { profile } from './data/profile';
 import { commercialGames, jamGames } from './data/games';
 import { philosophy } from './data/philosophy';
 
-const BackgroundShapes = () => (
-  <div className="bg-shapes">
-    <div className="shape s1">{"{}"}</div>
-    <div className="shape s2">{"</>"}</div>
-    <div className="shape s3">{"#"}</div>
-    <div className="shape s4">{"();"}</div>
-    <div className="shape s5">{"=>"}</div>
-  </div>
-);
-
 function App() {
   const [lang, setLang] = useState('zh'); // 'zh' or 'en'
   const commercialRef = useRef(null);
@@ -31,7 +21,6 @@ function App() {
 
   return (
     <>
-      <BackgroundShapes />
       <button className="lang-toggle" onClick={toggleLang}>
         {lang === 'zh' ? 'EN / 中文' : '中文 / EN'}
       </button>
@@ -103,8 +92,13 @@ function App() {
             <div className="horizontal-gallery jam-gallery" ref={jamRef}>
               {jamGames.map(game => (
                 <a key={game.id} href={game.url} target="_blank" rel="noreferrer" className="jam-card">
-                  <h3>{game.title}</h3>
-                  <p>{game.description[lang]}</p>
+                  <div className="jam-image-wrapper">
+                    <img src={game.image} alt={game.title} className="jam-image" />
+                  </div>
+                  <div className="jam-info">
+                    <h3>{game.title}</h3>
+                    <p>{game.description[lang]}</p>
+                  </div>
                 </a>
               ))}
             </div>
@@ -122,7 +116,6 @@ function App() {
             </a>
           </div>
         </section>
-
       </div>
     </>
   );

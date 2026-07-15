@@ -29,6 +29,7 @@ export const jamGames = [
             zh: "CiGA 2026 PMPS 站点冠军作品。",
             en: "CiGA 2026 PMPS Station Champion."
         },
+        image: "https://img.itch.zone/aW1nLzI4MzQzMTIyLnBuZw==/315x250%23c/VqzbUk.png",
         url: "https://noodle-storm.itch.io/battleship"
     },
     {
@@ -38,6 +39,7 @@ export const jamGames = [
             zh: "光与推箱子机制结合的解谜游戏 —— MicroJam056 GameMaker引擎第二名。",
             en: "Light and Sokoban puzzle game - 2nd best GameMaker entry in MicroJam056."
         },
+        image: "https://img.itch.zone/aW1nLzI2NTI1MDY5LnBuZw==/315x250%23c/92IGL9.png",
         url: "https://noodle-storm.itch.io/lightfold"
     },
     {
@@ -47,6 +49,7 @@ export const jamGames = [
             zh: "MicroJam054 GameMaker引擎第二名。",
             en: "2nd best GameMaker entry in MicroJam054."
         },
+        image: "https://img.itch.zone/aW1nLzI1NzMyMDYyLnBuZw==/315x250%23c/fdT7lQ.png",
         url: "https://noodle-storm.itch.io/linverse"
     },
     {
@@ -56,6 +59,7 @@ export const jamGames = [
             zh: "B1T Jam-2 玩法维度第 12 名。",
             en: "#12 at Gameplay of B1T Jam-2."
         },
+        image: "https://img.itch.zone/aW1nLzIyNzE5NDUxLnBuZw==/315x250%23c/RW%2Fpod.png",
         url: "https://noodle-storm.itch.io/sokobloom"
     },
     {
@@ -65,6 +69,7 @@ export const jamGames = [
             zh: "Ludum Dare 58 主题维度第 7 名。",
             en: "#7 at Theme in Ludum Dare 58."
         },
+        image: "https://img.itch.zone/aW1nLzIzNDU4NjA3LnBuZw==/315x250%23c/w0%2ByAw.png",
         url: "https://noodle-storm.itch.io/keyboardcollector"
     },
     {
@@ -74,6 +79,7 @@ export const jamGames = [
             zh: "为 Micro Jam 053 制作的推箱子实验作品。",
             en: "A sokoban game for Micro Jam 053."
         },
+        image: "https://img.itch.zone/aW1nLzI1NDYwNDc0LnBuZw==/315x250%23c/7y1dza.png",
         url: "https://noodle-storm.itch.io/isolatedcursor"
     }
 ];

@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg-color: #fafbfc;
+  --bg-color: #ffffff; /* 纯白背景 */
   --text-primary: #111111;
   --text-secondary: #555555;
   --accent-color: #000000;
   --border-color: rgba(0, 0, 0, 0.08);
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-hover: rgba(255, 255, 255, 0.95);
+  --card-bg: #f5f5f7; /* 高级质感浅灰卡片 */
+  --card-hover: #ebebeb; /* 悬停时稍微深一点的灰色 */
 }
 
 * {
@@ -25,38 +25,6 @@ body, html {
   /* The core mechanic of full-page scroll snap */
   overflow: hidden; /* Hide default scroll on body, we'll scroll a container */
 }
-
-/* --- COLORFUL BACKGROUND SHAPES --- */
-.bg-shapes {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.shape {
-  position: absolute;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 800;
-  opacity: 0.12; /* Colorful but subtle watermark */
-  user-select: none;
-  animation: float 15s infinite alternate ease-in-out;
-}
-
-@keyframes float {
-  0% { margin-top: 0; }
-  100% { margin-top: 60px; }
-}
-
-.s1 { top: -5%; left: 5%; color: #FF2A5F; font-size: 22vw; transform: rotate(-15deg); }
-.s2 { bottom: 5%; right: 2%; color: #00E5FF; font-size: 25vw; transform: rotate(10deg); animation-delay: -3s; }
-.s3 { top: 35%; left: 45%; color: #FFC400; font-size: 15vw; transform: translate(-50%, -50%) rotate(25deg); animation-delay: -7s; }
-.s4 { bottom: 15%; left: 8%; color: #00FF7F; font-size: 18vw; transform: rotate(-20deg); animation-delay: -2s; }
-.s5 { top: 12%; right: 15%; color: #AA00FF; font-size: 14vw; transform: rotate(35deg); animation-delay: -10s; }
 
 /* Global Lang Toggle */
 .lang-toggle {
@@ -187,12 +155,14 @@ h2.section-title {
   gap: 60px;
   align-items: center;
   background: var(--card-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   padding: 60px;
   border-radius: 24px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+.commercial-card:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
 }
 .commercial-image-wrapper {
   flex: 1;
@@ -241,24 +211,42 @@ h2.section-title {
   gap: 30px;
 }
 .jam-card {
-  flex: 0 0 300px; /* Small cards */
+  flex: 0 0 320px; /* Slightly wider cards */
   scroll-snap-align: start;
   background: var(--card-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  padding: 30px;
-  border-radius: 16px;
+  padding: 0; /* Removing padding from container to let image bleed */
+  border-radius: 20px;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Ensure image obeys border radius */
 }
 .jam-card:hover {
   background: var(--card-hover);
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+.jam-image-wrapper {
+  width: 100%;
+  height: 200px;
+  background-color: #eaeaea;
+  overflow: hidden;
+}
+.jam-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.jam-card:hover .jam-image {
+  transform: scale(1.05);
+}
+.jam-info {
+  padding: 30px;
 }
 .jam-card h3 {
   font-size: 1.5rem;
