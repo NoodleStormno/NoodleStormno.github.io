@@ -5,19 +5,29 @@ echo ==============================================
 
 cd /d "%~dp0"
 
-echo [1/3] Adding all changes...
-git add .
+echo.
+echo [1/3] Building React website locally...
+call npm run build
 
-echo [2/3] Committing code...
+echo.
+echo [2/3] Deploying to GitHub Pages branch...
+cd dist
+git init
+git add -A
+git commit -m "Deploy to GitHub Pages"
+git push -f https://github.com/NoodleStormno/noodlestormno.github.io.git master:gh-pages
+cd ..
+
+echo.
+echo [3/3] Saving source code to main branch...
+git add .
 set /p commitMsg="Enter commit message (Press Enter for default 'Update website'): "
 if "%commitMsg%"=="" set commitMsg=Update website
-
 git commit -m "%commitMsg%"
-
-echo [3/3] Pushing to GitHub...
 git push origin main
 
+echo.
 echo ==============================================
-echo Push complete! GitHub Actions will now build and deploy your site.
+echo Push complete!
 echo Press any key to exit...
 pause >nul
