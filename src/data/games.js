@@ -1,46 +1,79 @@
+import fungeImg from '../assets/funge.png';
+
 export const commercialGames = [
     {
         id: "funge",
         title: "Funge",
-        description: "一款基于深奥编程语言 (Esoteric Programming Language) Befunge 的极简编程解谜游戏。在这里，代码在二维空间中运行与穿梭。",
-        tags: ["Puzzle", "Programming", "Minimalist"],
-        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/0/capsule_616x353.jpg", // 替换为真实图片
+        description: {
+            zh: "一款基于简化版神秘编程语言（Esolang）Befunge 的极简编程解谜游戏。学习其独特的规则，运行你的代码，征服那些烧脑的逻辑挑战。",
+            en: "A minimalist programming puzzle game based on a simplified version of the esoteric programming language (Esolang) Befunge. Learn its unique rules, execute your code, and conquer those brain-burning logic challenges."
+        },
+        tags: {
+            zh: ["解谜", "编程", "极简", "逻辑"],
+            en: ["Puzzle", "Programming", "Minimalist", "Logic"]
+        },
+        image: fungeImg,
         links: [
             { platform: "Steam", url: "https://store.steampowered.com/search/?publisher=NoodleStorm" },
             { platform: "Itch.io", url: "https://noodle-storm.itch.io/" }
         ]
     }
+    // 添加新的商业游戏只需在这里复制大括号内容
 ];
 
 export const jamGames = [
     {
+        id: "battleship",
+        title: "BattleShip",
+        description: {
+            zh: "CiGA 2026 PMPS 站点冠军作品。",
+            en: "CiGA 2026 PMPS Station Champion."
+        },
+        url: "https://noodle-storm.itch.io/battleship"
+    },
+    {
         id: "lightfold",
         title: "Lightfold",
-        description: "扮演一只猫，在这个极简的解谜世界中操控光影与方块。",
-        url: "https://noodle-storm.itch.io/"
+        description: {
+            zh: "光与推箱子机制结合的解谜游戏 —— MicroJam056 GameMaker引擎第二名。",
+            en: "Light and Sokoban puzzle game - 2nd best GameMaker entry in MicroJam056."
+        },
+        url: "https://noodle-storm.itch.io/lightfold"
     },
     {
         id: "linverse",
         title: "Linverse",
-        description: "为 Micro Jam 054 创作的解谜游戏。",
-        url: "https://noodle-storm.itch.io/"
-    },
-    {
-        id: "battleship",
-        title: "BattleShip",
-        description: "本地双人乱斗游戏，核心武器是船锚！",
-        url: "https://noodle-storm.itch.io/"
+        description: {
+            zh: "MicroJam054 GameMaker引擎第二名。",
+            en: "2nd best GameMaker entry in MicroJam054."
+        },
+        url: "https://noodle-storm.itch.io/linverse"
     },
     {
         id: "sokobloom",
         title: "Sokobloom",
-        description: "带有独特机制的创新推箱子解谜。",
-        url: "https://noodle-storm.itch.io/"
+        description: {
+            zh: "B1T Jam-2 玩法维度第 12 名。",
+            en: "#12 at Gameplay of B1T Jam-2."
+        },
+        url: "https://noodle-storm.itch.io/sokobloom"
     },
     {
         id: "keyboardcollector",
         title: "KeyboardCollector",
-        description: "类银河恶魔城风格的解谜平台跳跃游戏。",
-        url: "https://noodle-storm.itch.io/"
+        description: {
+            zh: "Ludum Dare 58 主题维度第 7 名。",
+            en: "#7 at Theme in Ludum Dare 58."
+        },
+        url: "https://noodle-storm.itch.io/keyboardcollector"
+    },
+    {
+        id: "isolatedcursor",
+        title: "Isolated \"->\"",
+        description: {
+            zh: "为 Micro Jam 053 制作的推箱子实验作品。",
+            en: "A sokoban game for Micro Jam 053."
+        },
+        url: "https://noodle-storm.itch.io/isolatedcursor"
     }
 ];
