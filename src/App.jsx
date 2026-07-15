@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { profile } from './data/profile';
 import { commercialGames, jamGames } from './data/games';
 import { philosophy } from './data/philosophy';
+import avatarImg from './assets/noodlestorm.png';
 
 function App() {
   const [lang, setLang] = useState('zh'); // 'zh' or 'en'
@@ -29,13 +30,18 @@ function App() {
         
         {/* Section 1: Intro */}
         <section className="snap-section">
-          <h1>{profile.name}</h1>
-          <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '20px' }}>
-            {profile.title[lang]}
-          </h2>
-          <p className="subtitle">
-            {profile.bio[lang]}
-          </p>
+          <div className="text-card profile-card">
+            <div className="profile-content">
+              <h1>{profile.name}</h1>
+              <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '20px' }}>
+                {profile.title[lang]}
+              </h2>
+              <p className="subtitle">
+                {profile.bio[lang]}
+              </p>
+            </div>
+            <img src={avatarImg} alt="NoodleStorm Avatar" className="profile-avatar" />
+          </div>
         </section>
 
         {/* Section 2: Commercial Games */}
@@ -75,7 +81,7 @@ function App() {
         {/* Section 3: Design Philosophy */}
         <section className="snap-section">
           <h2 className="section-title">{philosophy.title[lang]}</h2>
-          <div>
+          <div className="text-card">
             {philosophy.paragraphs.map((p, idx) => (
               <p key={idx} className="philosophy-text">
                 {p[lang]}

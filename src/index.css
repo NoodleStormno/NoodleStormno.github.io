@@ -18,12 +18,9 @@
 
 body, html {
   width: 100%;
-  height: 100vh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
-  /* The core mechanic of full-page scroll snap */
-  overflow: hidden; /* Hide default scroll on body, we'll scroll a container */
 }
 
 /* Global Lang Toggle */
@@ -46,30 +43,31 @@ body, html {
   color: var(--bg-color);
 }
 
-/* The vertical snap container */
+/* The vertical container */
 .snap-container {
-  height: 100vh;
   width: 100%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  /* Hide scrollbar for a cleaner presentation look */
-  scrollbar-width: none; 
-}
-.snap-container::-webkit-scrollbar {
-  display: none;
 }
 
-/* Each full screen section */
+/* Each section */
 .snap-section {
-  height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10vw;
+  padding: 100px 10vw;
   position: relative;
+  min-height: 80vh;
+}
+
+/* Text Cards (Non-interactive) */
+.text-card {
+  background: var(--card-bg);
+  padding: 60px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+.text-card > *:last-child {
+  margin-bottom: 0 !important;
 }
 
 /* Typography */
@@ -79,6 +77,24 @@ h1 {
   letter-spacing: -2px;
   line-height: 1.1;
   margin-bottom: 20px;
+}
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+.profile-content {
+  flex: 1;
+}
+.profile-avatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
 }
 h2.section-title {
   font-size: 3rem;
@@ -306,6 +322,11 @@ h2.section-title {
 @media (max-width: 1024px) {
   h1 { font-size: 3.5rem; }
   h2.section-title { font-size: 2.5rem; }
+  .profile-card {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
   .commercial-card {
     flex-direction: column;
     padding: 30px;
