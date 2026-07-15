@@ -65,6 +65,9 @@ body, html {
   padding: 60px;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 .text-card > *:last-child {
   margin-bottom: 0 !important;
@@ -82,11 +85,11 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  justify-content: center;
+  gap: 40px;
 }
 .profile-content {
-  flex: 1;
+  flex: 0 1 auto;
 }
 .profile-avatar {
   width: 280px;
