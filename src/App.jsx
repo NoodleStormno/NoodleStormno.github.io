@@ -22,31 +22,32 @@ function App() {
 
   return (
     <>
-      <button className="lang-toggle" onClick={toggleLang}>
-        {lang === 'zh' ? 'EN / 中文' : '中文 / EN'}
-      </button>
+      <nav className="top-nav">
+        <div className="nav-links">
+          <a href="#home">{lang === 'zh' ? '主页' : 'Home'}</a>
+          <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
+          <a href="#jam">{lang === 'zh' ? '创意原型' : 'Jam Games'}</a>
+          <a href="#contact">{lang === 'zh' ? '联系合作' : 'Contact'}</a>
+        </div>
+        <button className="nav-lang-toggle" onClick={toggleLang}>
+          {lang === 'zh' ? 'EN' : '中'}
+        </button>
+      </nav>
 
       <div className="snap-container">
         
-        {/* Section 1: Intro */}
-        <section className="snap-section">
-          <div className="text-card profile-card">
-            <div className="profile-content">
+        {/* Section 1: Hero & Commercial Games */}
+        <section id="home" className="snap-section" style={{ paddingTop: '15vh' }}>
+          <div className="hero-header">
+            <img src={avatarImg} alt="NoodleStorm Avatar" className="hero-avatar" />
+            <div className="hero-text">
               <h1>{profile.name}</h1>
-              <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '20px' }}>
-                {profile.title[lang]}
-              </h2>
               <p className="subtitle">
                 {profile.bio[lang]}
               </p>
             </div>
-            <img src={avatarImg} alt="NoodleStorm Avatar" className="profile-avatar" />
           </div>
-        </section>
 
-        {/* Section 2: Commercial Games */}
-        <section className="snap-section">
-          <h2 className="section-title">{lang === 'zh' ? '商业游戏' : 'Commercial Games'}</h2>
           <div className="gallery-wrapper">
             <button className="scroll-btn left" onClick={() => scrollGallery(commercialRef, 'left')}>‹</button>
             <div className="horizontal-gallery" ref={commercialRef}>
@@ -55,14 +56,14 @@ function App() {
                   <div className="commercial-image-wrapper">
                     <img src={game.image} alt={game.title} className="commercial-image" />
                   </div>
-                  <div className="commercial-info">
-                    <h3>{game.title}</h3>
+                  <div className="commercial-info" style={{ textAlign: 'left' }}>
+                    <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{game.title}</h3>
                     <div className="tags">
                       {game.tags[lang].map(tag => (
                         <span key={tag} className="tag">{tag}</span>
                       ))}
                     </div>
-                    <p>{game.description[lang]}</p>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '30px' }}>{game.description[lang]}</p>
                     <div>
                       {game.links.map(link => (
                         <a key={link.platform} href={link.url} target="_blank" rel="noreferrer" className="btn">
@@ -79,7 +80,7 @@ function App() {
         </section>
 
         {/* Section 3: Design Philosophy */}
-        <section className="snap-section">
+        <section id="philosophy" className="snap-section">
           <h2 className="section-title">{philosophy.title[lang]}</h2>
           <div className="text-card">
             {philosophy.paragraphs.map((p, idx) => (
@@ -91,7 +92,7 @@ function App() {
         </section>
 
         {/* Section 4: Jam Games */}
-        <section className="snap-section">
+        <section id="jam" className="snap-section">
           <h2 className="section-title">{lang === 'zh' ? '创意原型 (Jam Games)' : 'Jam Games'}</h2>
           <div className="gallery-wrapper">
             <button className="scroll-btn left" onClick={() => scrollGallery(jamRef, 'left')}>‹</button>
@@ -113,7 +114,7 @@ function App() {
         </section>
 
         {/* Section 5: Contact Me */}
-        <section className="snap-section">
+        <section id="contact" className="snap-section">
           <h2 className="section-title">{lang === 'zh' ? '联系合作' : 'Contact Me'}</h2>
           <div className="contact-links">
             <a href={`mailto:${profile.contact.email}`}>Email: {profile.contact.email}</a>

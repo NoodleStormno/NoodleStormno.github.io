@@ -21,26 +21,49 @@ body, html {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for fixed navbar when jumping to anchors */
 }
 
-/* Global Lang Toggle */
-.lang-toggle {
+/* --- TOP NAVIGATION BAR --- */
+.top-nav {
   position: fixed;
-  top: 30px;
-  right: 40px;
-  z-index: 100;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  padding: 8px 16px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  top: 0; left: 0; width: 100%;
+  background: rgba(245, 245, 247, 0.9); /* Gray to match the cards */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5vw;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
-.lang-toggle:hover {
-  background: var(--text-primary);
-  color: var(--bg-color);
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+.nav-lang-toggle {
+  background: none;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-family: 'Inter', sans-serif;
+}
+.nav-lang-toggle:hover {
+  opacity: 0.7;
 }
 
 /* The vertical container */
@@ -54,9 +77,8 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 100px 10vw;
+  padding: 40px 10vw;
   position: relative;
-  min-height: 80vh;
 }
 
 /* Text Cards (Non-interactive) */
@@ -81,30 +103,39 @@ h1 {
   line-height: 1.1;
   margin-bottom: 20px;
 }
-.profile-card {
+.hero-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
 }
-.profile-content {
-  flex: 0 1 auto;
-}
-.profile-avatar {
-  width: 280px;
-  height: 280px;
+.hero-avatar {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   flex-shrink: 0;
 }
+.hero-text {
+  flex: 1;
+}
+.hero-text h1 {
+  margin-top: -10px; /* Optically align top of text with top of avatar */
+  margin-bottom: 10px;
+}
+.hero-text .subtitle {
+  margin: 0;
+}
 h2.section-title {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+  margin-bottom: 25px;
   color: var(--accent-color);
+  text-align: center;
 }
 .subtitle {
   font-size: 1.5rem;
@@ -279,18 +310,19 @@ h2.section-title {
 
 /* Philosophy Section */
 .philosophy-text {
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
   color: var(--text-primary);
   max-width: 900px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 /* Contact Section */
 .contact-links {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   font-size: 1.5rem;
 }
@@ -324,12 +356,16 @@ h2.section-title {
 
 @media (max-width: 1024px) {
   h1 { font-size: 3.5rem; }
-  h2.section-title { font-size: 2.5rem; }
-  .profile-card {
-    flex-direction: column-reverse;
+  .hero-header {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 30px;
   }
+  .hero-text h1 {
+    margin-top: 0;
+  }
+  h2.section-title { font-size: 2.5rem; }
   .commercial-card {
     flex-direction: column;
     padding: 30px;
