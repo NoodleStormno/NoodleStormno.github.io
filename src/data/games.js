@@ -14,7 +14,7 @@ export const commercialGames = [
         },
         image: fungeImg,
         links: [
-            { platform: "Steam", url: "https://store.steampowered.com/search/?publisher=NoodleStorm" },
+            { platform: "Steam", url: "https://store.steampowered.com/app/4794980/Funge/" },
             { platform: "Itch.io", url: "https://noodle-storm.itch.io/" }
         ]
     }
