@@ -124,8 +124,8 @@ function App() {
               <p>{lang === 'zh' ? '寻求资金支持与专业的全球发行资源，共同将极简解谜游戏推向更广阔的商业市场。' : 'Seeking financial support and global publishing resources to bring minimalist puzzle games to a broader market.'}</p>
             </div>
             <div className="feature-card">
-              <h3>{lang === 'zh' ? '希望加入' : 'Join the Team'}</h3>
-              <p>{lang === 'zh' ? '如果你也是热爱机制驱动与烧脑逻辑的开发者，非常欢迎加入共同创作。' : 'If you are a developer who loves mechanics-driven and brain-burning logic, you are welcome to join us.'}</p>
+              <h3>{lang === 'zh' ? '合作开发' : 'Co-development'}</h3>
+              <p>{lang === 'zh' ? '如果你也是热爱机制驱动与烧脑逻辑的开发者，非常欢迎加入共同创作。' : 'If you are a developer who loves mechanics-driven and brain-burning logic, you are welcome to join us in co-development.'}</p>
             </div>
             <div className="feature-card">
               <h3>{lang === 'zh' ? '技术合作' : 'Tech Collaboration'}</h3>

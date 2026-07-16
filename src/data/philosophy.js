@@ -19,17 +19,17 @@ export const philosophy = {
             }
         },
         {
-            title: { zh: "拥抱新技术", en: "New Technology" },
-            text: {
-                zh: "积极探索前沿技术在游戏开发中的应用，持续优化开发流程与玩家体验。",
-                en: "Actively explore the application of cutting-edge technology in game development to optimize workflows and player experience."
-            }
-        },
-        {
             title: { zh: "控制规模", en: "Scale Control" },
             text: {
                 zh: "严格把控项目体量，专注于能在有限时间内打磨至完美的创意，拒绝无意义的系统堆砌。",
                 en: "Strictly control project scope to focus on ideas that can be polished to perfection, avoiding meaningless feature creep."
+            }
+        },
+        {
+            title: { zh: "拥抱新技术", en: "New Technology" },
+            text: {
+                zh: "积极探索前沿技术在游戏开发中的应用，持续优化开发流程与玩家体验。",
+                en: "Actively explore the application of cutting-edge technology in game development to optimize workflows and player experience."
             }
         }
     ]
