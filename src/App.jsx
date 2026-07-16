@@ -27,6 +27,7 @@ function App() {
           <a href="#home">{lang === 'zh' ? '主页' : 'Home'}</a>
           <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
           <a href="#jam">{lang === 'zh' ? '创意原型' : 'Jam Games'}</a>
+          <a href="#business">{lang === 'zh' ? '业务合作' : 'Business'}</a>
           <a href="#contact">{lang === 'zh' ? '联系合作' : 'Contact'}</a>
         </div>
         <button className="nav-lang-toggle" onClick={toggleLang}>
@@ -113,7 +114,26 @@ function App() {
           </div>
         </section>
 
-        {/* Section 5: Contact Me */}
+        {/* Section 5: Business Collaboration */}
+        <section id="business" className="snap-section">
+          <h2 className="section-title">{lang === 'zh' ? '业务合作' : 'Business Collaboration'}</h2>
+          <div className="business-cards-container">
+            <div className="business-card">
+              <h3>{lang === 'zh' ? '融资与发行' : 'Funding & Publishing'}</h3>
+              <p>{lang === 'zh' ? '寻求资金支持与专业的全球发行资源，共同将极简解谜游戏推向更广阔的商业市场。' : 'Seeking financial support and global publishing resources to bring minimalist puzzle games to a broader market.'}</p>
+            </div>
+            <div className="business-card">
+              <h3>{lang === 'zh' ? '希望加入' : 'Join the Team'}</h3>
+              <p>{lang === 'zh' ? '如果你也是热爱机制驱动与烧脑逻辑的开发者，非常欢迎加入共同创作。' : 'If you are a developer who loves mechanics-driven and brain-burning logic, you are welcome to join us.'}</p>
+            </div>
+            <div className="business-card">
+              <h3>{lang === 'zh' ? '技术合作' : 'Tech Collaboration'}</h3>
+              <p>{lang === 'zh' ? '开放核心玩法代码的授权，承接定制化的小游戏开发，以及各类前沿游戏技术的探索合作。' : 'Open to core gameplay licensing, customized tiny game development, and exploring cutting-edge game tech.'}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Contact Me */}
         <section id="contact" className="snap-section">
           <h2 className="section-title">{lang === 'zh' ? '联系合作' : 'Contact Me'}</h2>
           <div className="contact-links">
