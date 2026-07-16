@@ -409,3 +409,98 @@ h2.section-title {
     flex: 0 0 90vw;
   }
 }
+
+/* --- MOBILE SPECIFIC STYLES --- */
+@media (max-width: 768px) {
+  /* Navigation */
+  .top-nav {
+    padding: 15px 5vw;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  .nav-lang-toggle {
+    position: absolute;
+    top: 15px;
+    right: 5vw;
+    font-size: 1rem;
+  }
+  
+  /* Sections & Layout */
+  .snap-section {
+    padding: 30px 5vw;
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  /* Hero */
+  .hero-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .hero-header {
+    margin-bottom: 20px;
+  }
+  
+  /* Feature Cards (Philosophy / Business) */
+  .feature-card {
+    padding: 25px;
+  }
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+  
+  /* Commercial Game Card */
+  .commercial-card {
+    padding: 20px;
+    gap: 20px;
+    flex: 0 0 85vw;
+  }
+  .commercial-image-wrapper {
+    max-width: 100%;
+  }
+  .commercial-info h3 {
+    font-size: 1.8rem;
+  }
+  .commercial-info p {
+    font-size: 1rem;
+  }
+  .tags {
+    flex-wrap: wrap;
+  }
+  
+  /* Jam Gallery */
+  .jam-card {
+    flex: 0 0 80vw;
+  }
+  
+  /* Hide desktop scroll buttons on touch devices */
+  .scroll-btn {
+    display: none;
+  }
+  
+  /* Contact */
+  .contact-links {
+    font-size: 1.1rem;
+  }
+}
