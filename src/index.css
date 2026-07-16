@@ -318,8 +318,8 @@ h2.section-title {
   margin-bottom: 15px;
 }
 
-/* Business Collaboration Section */
-.business-cards-container {
+/* Reusable Cards Section */
+.cards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -328,7 +328,7 @@ h2.section-title {
   margin: 0 auto;
   width: 100%;
 }
-.business-card {
+.feature-card {
   flex: 1;
   background: var(--card-bg);
   padding: 40px;
@@ -337,16 +337,16 @@ h2.section-title {
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.business-card:hover {
+.feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
-.business-card h3 {
+.feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: var(--accent-color);
 }
-.business-card p {
+.feature-card p {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -400,7 +400,7 @@ h2.section-title {
     margin-top: 0;
   }
   h2.section-title { font-size: 2.5rem; }
-  .business-cards-container {
+  .cards-container {
     flex-direction: column;
   }
   .commercial-card {
