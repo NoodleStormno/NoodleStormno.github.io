@@ -5,7 +5,7 @@ export const profile = {
         en: "Indie Game Developer"
     },
     bio: {
-        zh: "专注于创造极简、基于机制驱动的解谜游戏与小游戏",
+        zh: "专注于创造极简、机制驱动的解谜游戏与小游戏",
         en: "Dedicated to creating minimalist, mechanics-driven puzzle & tiny games"
     },
     philosophy: {
@@ -38,7 +38,7 @@ export const profile = {
         ]
     },
     contact: {
-        email: "wukuncheng001@gmail.com",
+        email: "w2578847523@outlook.com",
         bluesky: "noodlestorm.bsky.social"
     }
 };
