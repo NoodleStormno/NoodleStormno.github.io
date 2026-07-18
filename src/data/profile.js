@@ -5,8 +5,8 @@ export const profile = {
         en: "Indie Game Developer"
     },
     bio: {
-        zh: "专注于创造极简、基于机制驱动的解谜游戏与小游戏。",
-        en: "Dedicated to creating minimalist, and mechanics-driven puzzle games and tiny games."
+        zh: "专注于创造极简、基于机制驱动的解谜游戏与小游戏",
+        en: "Dedicated to creating minimalist, mechanics-driven puzzle & tiny games"
     },
     philosophy: {
         title: {
