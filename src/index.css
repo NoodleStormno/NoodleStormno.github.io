@@ -211,12 +211,7 @@ h2.section-title {
   background: var(--card-bg);
   padding: 60px;
   border-radius: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-}
-.commercial-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  transform: translateY(-5px);
 }
 .commercial-image-wrapper {
   flex: 1;
@@ -339,11 +334,6 @@ h2.section-title {
   border-radius: 0;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 .feature-card h3 {
   font-size: 1.5rem;
