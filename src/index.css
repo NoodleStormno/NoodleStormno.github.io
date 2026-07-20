@@ -546,12 +546,12 @@ h2.section-title {
   }
   
   /* Hero */
-  .hero-avatar {
-    width: 100px;
-    height: 100px;
+  .hero-logo-small {
+    width: 44px;
+    height: 44px;
   }
-  .hero-header {
-    margin-bottom: 20px;
+  .hero-title-group {
+    gap: 10px;
   }
   
   /* Feature Cards (Philosophy / Business) */
@@ -567,21 +567,38 @@ h2.section-title {
   
   /* Commercial Game Card */
   .commercial-card {
-    padding: 20px;
-    gap: 20px;
-    flex: 0 0 85vw;
+    padding: 15px;
+    width: 95vw;
   }
   .commercial-image-wrapper {
     max-width: 100%;
   }
   .commercial-info h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .commercial-info p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
+  /* Always expand on mobile since there is no hover */
+  .expandable-wrapper {
+    grid-template-rows: 1fr;
+  }
+  .expandable-content {
+    padding-top: 15px;
+  }
+  /* Separate tags and buttons vertically to prevent overlap */
   .tags {
-    flex-wrap: wrap;
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+  }
+  .commercial-links-overlay {
+    bottom: 10px;
+    right: 10px;
+  }
+  .tag, .overlay-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
   }
   
   /* Jam Gallery */
