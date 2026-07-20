@@ -23,9 +23,6 @@ function App() {
   return (
     <>
       <nav className="top-nav">
-        <div className="nav-logo">
-          <img src={avatarImg} alt="NoodleStorm" className="nav-logo-img" />
-        </div>
         <div className="nav-links">
           <a href="#home">{lang === 'zh' ? '主页' : 'Home'}</a>
           <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
@@ -43,7 +40,10 @@ function App() {
         {/* Section 1: Hero & Commercial */}
         <section id="hero" className="snap-section">
           <div className="hero-text-center">
-            <h1>NoodleStorm</h1>
+            <div className="hero-title-group">
+              <img src={avatarImg} alt="NoodleStorm" className="hero-logo-small" />
+              <h1>NoodleStorm</h1>
+            </div>
             <p className="subtitle">{profile.bio[lang]}</p>
           </div>
 
