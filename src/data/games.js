@@ -1,6 +1,20 @@
+import pietImg from '../assets/piet.png';
 import fungeImg from '../assets/funge.png';
-
 export const commercialGames = [
+    {
+        id: "piet",
+        title: "Piet",
+        description: {
+            zh: "一款基于神秘编程语言（Esolang）Piet 改编的极简编程解谜游戏。（开发中）",
+            en: "A minimalist programming puzzle game based on the esoteric programming language (Esolang) Piet. (In Development)"
+        },
+        tags: {
+            zh: ["开发中", "解谜", "编程"],
+            en: ["In Dev", "Puzzle", "Programming"]
+        },
+        image: pietImg,
+        links: []
+    },
     {
         id: "funge",
         title: "Funge",

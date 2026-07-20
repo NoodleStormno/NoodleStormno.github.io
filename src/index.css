@@ -39,6 +39,12 @@ body, html {
   z-index: 1000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--text-primary);
+  border-radius: 0;
+}
 .nav-links {
   display: flex;
   gap: 30px;
@@ -107,6 +113,32 @@ h1 {
   line-height: 1.1;
   margin-bottom: 20px;
 }
+/* --- HERO SECTION --- */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  gap: 40px;
+}
+.hero-text-center {
+  text-align: center;
+  margin-top: 80px; /* Pushed down slightly */
+  animation: fadeIn 1s ease-out;
+}
+.hero-text-center h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -2px;
+}
+.hero-text-center .subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
 .hero-header {
   display: flex;
   flex-direction: row;
@@ -153,6 +185,10 @@ h2.section-title {
 .gallery-wrapper {
   position: relative;
   width: 100%;
+}
+#commercial .gallery-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
 }
 .scroll-btn {
   position: absolute;
@@ -202,57 +238,113 @@ h2.section-title {
 }
 
 /* Commercial Game Card */
-.commercial-card {
-  flex: 0 0 100%; /* Take full width of gallery container */
+.commercial-card-container {
+  flex: 0 0 100%; /* Take exactly one viewport width */
   scroll-snap-align: center;
   display: flex;
-  gap: 60px;
+  justify-content: center;
+  align-items: center;
+}
+.commercial-card {
+  flex: 0 0 auto;
+  width: 760px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   background: var(--card-bg);
-  padding: 60px;
+  padding: 20px;
   border-radius: 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
 }
 .commercial-image-wrapper {
-  flex: 1;
+  width: 100%;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
 }
 .commercial-image {
   width: 100%;
-  max-height: 450px;
+  max-height: 400px;
   background-color: #eaeaea;
   border-radius: 0;
   object-fit: cover;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
+
+/* Hover Expansion */
+.expandable-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+.expandable-content {
+  overflow: hidden;
+  padding-top: 20px; /* Space between image and expanded text */
+}
+.commercial-card:hover .expandable-wrapper {
+  grid-template-rows: 1fr;
+}
 .commercial-info {
-  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .commercial-info h3 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .commercial-info p {
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .tags {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+  margin: 0;
 }
 .tag {
-  background: var(--text-primary);
+  background: rgba(17, 17, 17, 0.85); /* Slightly transparent dark background for visibility on image */
+  backdrop-filter: blur(4px);
   color: var(--bg-color);
-  padding: 6px 12px;
-  font-size: 0.8rem;
+  padding: 8px 16px;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 0;
+}
+.commercial-links-overlay {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+}
+.overlay-btn {
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.overlay-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
 }
 
 /* Jam Game Card */

@@ -15,7 +15,7 @@ function App() {
 
   const scrollGallery = (ref, direction) => {
     if (ref.current) {
-      const scrollAmount = direction === 'left' ? -800 : 800;
+      const scrollAmount = direction === 'left' ? -ref.current.clientWidth : ref.current.clientWidth;
       ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -23,6 +23,9 @@ function App() {
   return (
     <>
       <nav className="top-nav">
+        <div className="nav-logo">
+          <img src={avatarImg} alt="NoodleStorm" className="nav-logo-img" />
+        </div>
         <div className="nav-links">
           <a href="#home">{lang === 'zh' ? '主页' : 'Home'}</a>
           <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
@@ -37,40 +40,41 @@ function App() {
 
       <div className="snap-container">
         
-        {/* Section 1: Hero & Commercial Games */}
-        <section id="home" className="snap-section" style={{ paddingTop: '15vh' }}>
-          <div className="hero-header">
-            <img src={avatarImg} alt="NoodleStorm Avatar" className="hero-avatar" />
-            <div className="hero-text">
-              <h1>{profile.name}</h1>
-              <p className="subtitle">
-                {profile.bio[lang]}
-              </p>
-            </div>
+        {/* Section 1: Hero & Commercial */}
+        <section id="hero" className="snap-section">
+          <div className="hero-text-center">
+            <h1>NoodleStorm</h1>
+            <p className="subtitle">{profile.bio[lang]}</p>
           </div>
 
           <div className="gallery-wrapper">
             <button className="scroll-btn left" onClick={() => scrollGallery(commercialRef, 'left')}>‹</button>
             <div className="horizontal-gallery" ref={commercialRef}>
               {commercialGames.map(game => (
-                <div key={game.id} className="commercial-card">
-                  <div className="commercial-image-wrapper">
-                    <img src={game.image} alt={game.title} className="commercial-image" />
-                  </div>
-                  <div className="commercial-info" style={{ textAlign: 'left' }}>
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{game.title}</h3>
-                    <div className="tags">
-                      {game.tags[lang].map(tag => (
-                        <span key={tag} className="tag">{tag}</span>
-                      ))}
+                <div key={game.id} className="commercial-card-container">
+                  <div className="commercial-card">
+                    <div className="commercial-image-wrapper">
+                      <img src={game.image} alt={game.title} className="commercial-image" />
+                      <div className="tags">
+                        {game.tags[lang].map(tag => (
+                          <span key={tag} className="tag">{tag}</span>
+                        ))}
+                      </div>
+                      <div className="commercial-links-overlay">
+                        {game.links.map(link => (
+                          <a key={link.platform} href={link.url} target="_blank" rel="noreferrer" className="btn overlay-btn">
+                            {link.platform}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                    <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '30px' }}>{game.description[lang]}</p>
-                    <div>
-                      {game.links.map(link => (
-                        <a key={link.platform} href={link.url} target="_blank" rel="noreferrer" className="btn">
-                          {link.platform}
-                        </a>
-                      ))}
+                    <div className="commercial-info">
+                      <div className="expandable-wrapper">
+                        <div className="expandable-content">
+                          <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{game.title}</h3>
+                          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '10px' }}>{game.description[lang]}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
