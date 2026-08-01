@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { profile } from './data/profile';
 import { commercialGames, jamGames } from './data/games';
 import { philosophy } from './data/philosophy';
@@ -6,27 +6,35 @@ import avatarImg from './assets/noodlestorm.png';
 
 function App() {
   const [lang, setLang] = useState('zh'); // 'zh' or 'en'
-  const commercialRef = useRef(null);
-  const jamRef = useRef(null);
-
   const toggleLang = () => {
     setLang(lang === 'zh' ? 'en' : 'zh');
   };
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
 
-  const scrollGallery = (ref, direction) => {
-    if (ref.current) {
-      const scrollAmount = direction === 'left' ? -ref.current.clientWidth : ref.current.clientWidth;
-      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
       <nav className="top-nav">
         <div className="nav-links">
           <a href="#home">{lang === 'zh' ? '主页' : 'Home'}</a>
-          <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
           <a href="#jam">{lang === 'zh' ? '创意原型' : 'Jam Games'}</a>
+          <a href="#philosophy">{lang === 'zh' ? '设计理念' : 'Philosophy'}</a>
           <a href="#business">{lang === 'zh' ? '业务合作' : 'Business'}</a>
           <a href="#contact">{lang === 'zh' ? '联系合作' : 'Contact'}</a>
         </div>
@@ -37,55 +45,66 @@ function App() {
 
       <div className="snap-container">
         
-        {/* Section 1: Hero & Commercial */}
-        <section id="hero" className="snap-section">
-          <div className="hero-text-center">
-            <div className="hero-title-group">
-              <img src={avatarImg} alt="NoodleStorm" className="hero-logo-small" />
-              <h1>NoodleStorm</h1>
-            </div>
+        {/* Section 1: Home (First Page) */}
+        <section id="home" className="snap-section full-page reveal-on-scroll">
+          <div className="hero-stack">
+            <img src={avatarImg} alt="NoodleStorm" className="hero-logo-large" />
+            <h1>NoodleStorm</h1>
             <p className="subtitle">{profile.bio[lang]}</p>
-          </div>
-
-          <div className="gallery-wrapper">
-            <button className="scroll-btn left" onClick={() => scrollGallery(commercialRef, 'left')}>‹</button>
-            <div className="horizontal-gallery" ref={commercialRef}>
-              {commercialGames.map(game => (
-                <div key={game.id} className="commercial-card-container">
-                  <div className="commercial-card">
-                    <div className="commercial-image-wrapper">
-                      <img src={game.image} alt={game.title} className="commercial-image" />
-                      <div className="tags">
-                        {game.tags[lang].map(tag => (
-                          <span key={tag} className="tag">{tag}</span>
-                        ))}
-                      </div>
-                      <div className="commercial-links-overlay">
-                        {game.links.map(link => (
-                          <a key={link.platform} href={link.url} target="_blank" rel="noreferrer" className="btn overlay-btn">
-                            {link.platform}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="commercial-info">
-                      <div className="expandable-wrapper">
-                        <div className="expandable-content">
-                          <h3 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{game.title}</h3>
-                          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '10px' }}>{game.description[lang]}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className="scroll-btn right" onClick={() => scrollGallery(commercialRef, 'right')}>›</button>
           </div>
         </section>
 
-        {/* Section 3: Design Philosophy */}
-        <section id="philosophy" className="snap-section">
+        {/* Section 2: Commercial Games (Second Page) */}
+        <section id="commercial" className="snap-section reveal-on-scroll">
+          <div className="commercial-grid">
+            {commercialGames.map(game => (
+              <div key={game.id} className="commercial-card-container">
+                <div className="commercial-card">
+                  <div className="commercial-image-wrapper">
+                    <img src={game.image} alt={game.title} className="commercial-image" />
+                    <div className="tags">
+                      {game.tags[lang].map(tag => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                    <div className="commercial-links-overlay">
+                      {game.links.map(link => (
+                        <a key={link.platform} href={link.url} target="_blank" rel="noreferrer" className="btn overlay-btn">
+                          {link.platform}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="commercial-info-static">
+                    <h3 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{game.title}</h3>
+                    <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{game.description[lang]}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 3: Jam Games */}
+        <section id="jam" className="snap-section reveal-on-scroll">
+          <h2 className="section-title">{lang === 'zh' ? '创意原型 (Jam Games)' : 'Jam Games'}</h2>
+          <div className="jam-grid">
+            {jamGames.map(game => (
+              <a key={game.id} href={game.url} target="_blank" rel="noreferrer" className="jam-card">
+                <div className="jam-image-wrapper">
+                  <img src={game.image} alt={game.title} className="jam-image" />
+                </div>
+                <div className="jam-info">
+                  <h3>{game.title}</h3>
+                  <p>{game.description[lang]}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 4: Design Philosophy */}
+        <section id="philosophy" className="snap-section reveal-on-scroll">
           <h2 className="section-title">{philosophy.title[lang]}</h2>
           <div className="cards-container">
             {philosophy.items.map((item, idx) => (
@@ -97,30 +116,8 @@ function App() {
           </div>
         </section>
 
-        {/* Section 4: Jam Games */}
-        <section id="jam" className="snap-section">
-          <h2 className="section-title">{lang === 'zh' ? '创意原型 (Jam Games)' : 'Jam Games'}</h2>
-          <div className="gallery-wrapper">
-            <button className="scroll-btn left" onClick={() => scrollGallery(jamRef, 'left')}>‹</button>
-            <div className="horizontal-gallery jam-gallery" ref={jamRef}>
-              {jamGames.map(game => (
-                <a key={game.id} href={game.url} target="_blank" rel="noreferrer" className="jam-card">
-                  <div className="jam-image-wrapper">
-                    <img src={game.image} alt={game.title} className="jam-image" />
-                  </div>
-                  <div className="jam-info">
-                    <h3>{game.title}</h3>
-                    <p>{game.description[lang]}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-            <button className="scroll-btn right" onClick={() => scrollGallery(jamRef, 'right')}>›</button>
-          </div>
-        </section>
-
         {/* Section 5: Business Collaboration */}
-        <section id="business" className="snap-section">
+        <section id="business" className="snap-section reveal-on-scroll">
           <h2 className="section-title">{lang === 'zh' ? '业务合作' : 'Business Collaboration'}</h2>
           <div className="cards-container">
             <div className="feature-card">
@@ -139,7 +136,7 @@ function App() {
         </section>
 
         {/* Section 6: Contact Me */}
-        <section id="contact" className="snap-section">
+        <section id="contact" className="snap-section reveal-on-scroll">
           <h2 className="section-title">{lang === 'zh' ? '联系合作' : 'Contact Me'}</h2>
           <div className="contact-links">
             <a href={`mailto:${profile.contact.email}`}>Email: {profile.contact.email}</a>

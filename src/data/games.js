@@ -23,6 +23,16 @@ export const commercialGames = [
 
 export const jamGames = [
     {
+        id: "decremental",
+        title: "A \"Decremental\" Job",
+        description: {
+            zh: "一款反向的“增量”游戏（A twist \"Incremental\" game）。",
+            en: "A twist \"Incremental\" game."
+        },
+        image: "https://img.itch.zone/aW1nLzI4NzIzNDEzLnBuZw==/315x250%23c/zkCfA7.png",
+        url: "https://noodle-storm.itch.io/a-decremental-job"
+    },
+    {
         id: "battleship",
         title: "BattleShip",
         description: {
