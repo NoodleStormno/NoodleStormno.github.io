@@ -1,6 +1,22 @@
 import pietImg from '../assets/piet.png';
 import fungeImg from '../assets/funge.png';
+import farmerImg from '../assets/Farmer=nil.png';
+
 export const commercialGames = [
+    {
+        id: "farmer_nil",
+        title: "Farmer=nil",
+        description: {
+            zh: "脚本农场是一款编程自动化农场游戏。为你的机器人写好脚本，收集资源，解锁科技，打造最有效率的农场。",
+            en: "Farmer=nil is a programming automation farming game. Write scripts for your robots, gather resources, unlock tech, and build the most efficient farm."
+        },
+        tags: {
+            zh: ["编程", "自动化", "模拟农场"],
+            en: ["Programming", "Automation", "Farming"]
+        },
+        image: farmerImg,
+        links: []
+    },
     {
         id: "funge",
         title: "Funge",
