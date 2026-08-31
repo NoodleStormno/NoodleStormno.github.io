@@ -61,7 +61,7 @@ function App() {
               <div key={game.id} className="commercial-card-container">
                 <div className="commercial-card">
                   <div className="commercial-image-wrapper">
-                    <img src={game.image} alt={game.title} className="commercial-image" />
+                    <img src={game.image} alt={typeof game.title === 'string' ? game.title : game.title[lang]} className="commercial-image" />
                     <div className="tags">
                       {game.tags[lang].map(tag => (
                         <span key={tag} className="tag">{tag}</span>
@@ -76,7 +76,7 @@ function App() {
                     </div>
                   </div>
                   <div className="commercial-info-static">
-                    <h3 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{game.title}</h3>
+                    <h3 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{typeof game.title === 'string' ? game.title : game.title[lang]}</h3>
                     <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{game.description[lang]}</p>
                   </div>
                 </div>
@@ -92,10 +92,10 @@ function App() {
             {jamGames.map(game => (
               <a key={game.id} href={game.url} target="_blank" rel="noreferrer" className="jam-card">
                 <div className="jam-image-wrapper">
-                  <img src={game.image} alt={game.title} className="jam-image" />
+                  <img src={game.image} alt={typeof game.title === 'string' ? game.title : game.title[lang]} className="jam-image" />
                 </div>
                 <div className="jam-info">
-                  <h3>{game.title}</h3>
+                  <h3>{typeof game.title === 'string' ? game.title : game.title[lang]}</h3>
                   <p>{game.description[lang]}</p>
                 </div>
               </a>
