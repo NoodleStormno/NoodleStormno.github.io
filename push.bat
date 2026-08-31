@@ -24,6 +24,7 @@ git add .
 set /p commitMsg="Enter commit message (Press Enter for default 'Update website'): "
 if "%commitMsg%"=="" set commitMsg=Update website
 git commit -m "%commitMsg%"
+git pull origin main --rebase
 git push origin main
 
 echo.
